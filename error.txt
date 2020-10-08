@@ -1,0 +1,113 @@
+npx cdk bootstrap \
+  --profile pipeline-dev \
+  --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess \
+  aws://786949888106/us-east-1
+
+/home/george/backup/gsa-pipeline/lib
+
+george@Macubi:~/cdkpipeline$ npx cdk bootstrap --profile POC-developer --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://004822587814/us-east-1
+'@aws-cdk/core:newStyleStackSynthesis' context set, using new-style bootstrapping
+This app contains no stacks
+george@Macubi:~/cdkpipeline$ npx cdk --profile POC-developer -a cdk.out/assembly-george deploy georgeOrdersService7FC78068
+georgeOrdersService7FC78068 (george-OrdersService): deploying...
+[0%] start: Publishing e5113c4fdcc8328d14f569c0f1b837dab9f30ac97955c323d7bae888c4723ac8:004822587814-us-east-1
+[50%] success: Published e5113c4fdcc8328d14f569c0f1b837dab9f30ac97955c323d7bae888c4723ac8:004822587814-us-east-1
+[50%] start: Publishing 6147a024864a69aa4b6371e9b0a8878ed0a7c4a07b1d23a626896792cc10e3f2:004822587814-us-east-1
+[100%] success: Published 6147a024864a69aa4b6371e9b0a8878ed0a7c4a07b1d23a626896792cc10e3f2:004822587814-us-east-1
+george-OrdersService: creating CloudFormation changeset...
+1:35:23 PM | CREATE_FAILED        | AWS::ApiGateway::RestApi    | Gateway43CB3636
+User: arn:aws:sts::004822587814:assumed-role/cdk-hnb659fds-cfn-exec-role-004822587814-us-east-1/AWSCloudF
+ormation is not authorized to perform: apigateway:POST on resource: arn:aws:apigateway:us-east-1::/restap
+is (Service: AmazonApiGateway; Status Code: 403; Error Code: AccessDeniedException; Request ID: 478035a0-
+e035-4e96-879f-666366ed96ab; Proxy: null)
+
+        new RestApi (/home/george/cdkpipeline/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:588:22)
+        \_ new LambdaRestApi (/home/george/cdkpipeline/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:50:m:CreateRole User: arn:aws:sts::004822587814:assumed-role/cdk-hnb659fds-cfn-exec-role-004822587814
+5)
+        \_ new CdkpipelinesDemoStack2 (/home/george/cdkpipeline/lib/cdkpipelines-demo-stack2.ts:22:16)
+        \_ new CdkpipelinesDemoStage (/home/george/cdkpipeline/lib/cdkpipelines-demo-stage.ts:18:30)
+        \_ Object.<anonymous> (/home/george/cdkpipeline/bin/cdkpipelines-demo.ts:21:5)
+        \_ Module._compile (internal/modules/cjs/loader.js:1137:30)
+        \_ Module.m._compile (/home/george/cdkpipeline/node_modules/ts-node/src/index.ts:858:23)
+        \_ Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+        \_ Object.require.extensions.<computed> [as .ts] (/home/george/cdkpipeline/node_modules/ts-node/src/index
+.ts:861:12)
+        \_ Module.load (internal/modules/cjs/loader.js:985:32)
+        \_ Function.Module._load (internal/modules/cjs/loader.js:878:14)
+        \_ Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+        \_ main (/home/george/cdkpipeline/node_modules/ts-node/src/bin.ts:227:14)
+        \_ Object.<anonymous> (/home/george/cdkpipeline/node_modules/ts-node/src/bin.ts:513:3)
+        \_ Module._compile (internal/modules/cjs/loader.js:1137:30)
+        \_ Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+        \_ Module.load (internal/modules/cjs/loader.js:985:32)
+        \_ Function.Module._load (internal/modules/cjs/loader.js:878:14)
+        \_ Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+        \_ /usr/lib/node_modules/npm/node_modules/libnpx/index.js:268:14
+
+1:35:23 PM | CREATE_FAILED        | AWS::IAM::Role              | LambdaServiceRoleA8ED4D3B
+API: iam:CreateRole User: arn:aws:sts::004822587814:assumed-role/cdk-hnb659fds-cfn-exec-role-004822587814
+-us-east-1/AWSCloudFormation is not authorized to perform: iam:CreateRole on resource: arn:aws:iam::00482
+2587814:role/george-OrdersService-LambdaServiceRoleA8ED4D3B-1E1R56WBX309R
+
+        new Role (/home/george/cdkpipeline/node_modules/@aws-cdk/aws-iam/lib/role.ts:320:18)
+        \_ new Function (/home/george/cdkpipeline/node_modules/@aws-cdk/aws-lambda/lib/function.ts:536:31)
+        \_ new CdkpipelinesDemoStack2 (/home/george/cdkpipeline/lib/cdkpipelines-demo-stack2.ts:16:18)
+        \_ new CdkpipelinesDemoStage (/home/george/cdkpipeline/lib/cdkpipelines-demo-stage.ts:18:30)
+        \_ Object.<anonymous> (/home/george/cdkpipeline/bin/cdkpipelines-demo.ts:21:5)
+        \_ Module._compile (internal/modules/cjs/loader.js:1137:30)
+        \_ Module.m._compile (/home/george/cdkpipeline/node_modules/ts-node/src/index.ts:858:23)
+        \_ Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+        \_ Object.require.extensions.<computed> [as .ts] (/home/george/cdkpipeline/node_modules/ts-node/src/index
+.ts:861:12)
+        \_ Module.load (internal/modules/cjs/loader.js:985:32)
+        \_ Function.Module._load (internal/modules/cjs/loader.js:878:14)
+        \_ Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+        \_ main (/home/george/cdkpipeline/node_modules/ts-node/src/bin.ts:227:14)
+        \_ Object.<anonymous> (/home/george/cdkpipeline/node_modules/ts-node/src/bin.ts:513:3)
+        \_ Module._compile (internal/modules/cjs/loader.js:1137:30)
+        \_ Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+        \_ Module.load (internal/modules/cjs/loader.js:985:32)
+        \_ Function.Module._load (internal/modules/cjs/loader.js:878:14)
+        \_ Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+        \_ /usr/lib/node_modules/npm/node_modules/libnpx/index.js:268:14
+
+1:35:25 PM | CREATE_FAILED        | AWS::IAM::Role              | GatewayCloudWatchRole34305E06
+API: iam:CreateRole User: arn:aws:sts::004822587814:assumed-role/cdk-hnb659fds-cfn-exec-role-004822587814
+-us-east-1/AWSCloudFormation is not authorized to perform: iam:CreateRole on resource: arn:aws:iam::00482
+2587814:role/george-OrdersService-GatewayCloudWatchRole34305E06-1FUDCNPSUWBJ9
+
+        new Role (/home/george/cdkpipeline/node_modules/@aws-cdk/aws-iam/lib/role.ts:320:18)
+        \_ LambdaRestApi.configureCloudWatchRole (/home/george/cdkpipeline/node_modules/@aws-cdk/aws-apigateway/l
+ib/restapi.ts:395:18)
+        \_ new RestApi (/home/george/cdkpipeline/node_modules/@aws-cdk/aws-apigateway/lib/restapi.ts:605:12)
+        \_ new LambdaRestApi (/home/george/cdkpipeline/node_modules/@aws-cdk/aws-apigateway/lib/lambda-api.ts:50:
+5)
+        \_ new CdkpipelinesDemoStack2 (/home/george/cdkpipeline/lib/cdkpipelines-demo-stack2.ts:22:16)
+        \_ new CdkpipelinesDemoStage (/home/george/cdkpipeline/lib/cdkpipelines-demo-stage.ts:18:30)
+        \_ Object.<anonymous> (/home/george/cdkpipeline/bin/cdkpipelines-demo.ts:21:5)
+        \_ Module._compile (internal/modules/cjs/loader.js:1137:30)
+        \_ Module.m._compile (/home/george/cdkpipeline/node_modules/ts-node/src/index.ts:858:23)
+        \_ Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+        \_ Object.require.extensions.<computed> [as .ts] (/home/george/cdkpipeline/node_modules/ts-node/src/index
+.ts:861:12)
+        \_ Module.load (internal/modules/cjs/loader.js:985:32)
+        \_ Function.Module._load (internal/modules/cjs/loader.js:878:14)
+        \_ Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+        \_ main (/home/george/cdkpipeline/node_modules/ts-node/src/bin.ts:227:14)
+        \_ Object.<anonymous> (/home/george/cdkpipeline/node_modules/ts-node/src/bin.ts:513:3)
+        \_ Module._compile (internal/modules/cjs/loader.js:1137:30)
+        \_ Object.Module._extensions..js (internal/modules/cjs/loader.js:1157:10)
+        \_ Module.load (internal/modules/cjs/loader.js:985:32)
+        \_ Function.Module._load (internal/modules/cjs/loader.js:878:14)
+        \_ Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+        \_ /usr/lib/node_modules/npm/node_modules/libnpx/index.js:268:14
+
+
+ ❌  georgeOrdersService7FC78068 (george-OrdersService) failed: Error: The stack named george-OrdersService failed creation, it may need to be manually deleted from the AWS console: ROLLBACK_COMPLETE
+    at Object.waitForStackDeploy (/home/george/cdkpipeline/node_modules/aws-cdk/lib/api/util/cloudformation.ts:292:11)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at Object.deployStack (/home/george/cdkpipeline/node_modules/aws-cdk/lib/api/deploy-stack.ts:266:26)
+    at CdkToolkit.deploy (/home/george/cdkpipeline/node_modules/aws-cdk/lib/cdk-toolkit.ts:181:24)
+    at main (/home/george/cdkpipeline/node_modules/aws-cdk/bin/cdk.ts:268:16)
+    at initCommandLine (/home/george/cdkpipeline/node_modules/aws-cdk/bin/cdk.ts:188:9)
+The stack named george-OrdersService failed creation, it may need to be manually deleted from the AWS console: ROLLBACK_COMPLETE
